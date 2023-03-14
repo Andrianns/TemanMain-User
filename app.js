@@ -9,8 +9,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
-app.listen(port, () => {
-  console.log(`App is listening to ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`App is listening to ${port}`);
+// });
 
 module.exports = app;
