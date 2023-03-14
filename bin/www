@@ -7,7 +7,7 @@ const { Sequelize } = require('sequelize');
 
 const sequelize = new Sequelize({
   dialect: 'postgres',
-  host: 'postgresql://postgres:M7gaSYwVWtptFTA4Fl13@containers-us-west-165.railway.app:7046/railway',
+  host: 'containers-us-west-165.railway.app',
   port: 4001,
   username: 'postgres',
   password: 'postgres',
