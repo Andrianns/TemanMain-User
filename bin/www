@@ -1,7 +1,9 @@
 const app = require('../app.js');
-const port = 7046;
+const port = process.env.PORT || 4001;
 const db = require('../config/db.config');
+const dotenv = require('dotenv');
 
+dotenv.confif();
 db.authenticate()
   .then(() => console.log('Database connected'))
   .catch((err) => console.log('error'));
