@@ -9,9 +9,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(router);
 
-db.authenticate()
-  .then(() => console.log('Database connected'))
-  .catch((err) => console.log('error'));
+// db.authenticate()
+//   .then(() => console.log('Database connected'))
+//   .catch((err) => console.log('error'));
 // app.listen(port, () => {
 //   console.log(`App is listening to ${port}`);
 // });
