@@ -15,4 +15,5 @@
   },
   "production": {
     "DATABASE_URL": "PGPASSWORD=M7gaSYwVWtptFTA4Fl13 psql -h containers-us-west-165.railway.app -U postgres -p 7046 -d railway"
+  }
 }
