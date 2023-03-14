@@ -14,8 +14,12 @@
     "dialect": "postgres"
   },
   "production": {
-    "DATABASE_URL": "postgresql://postgres:M7gaSYwVWtptFTA4Fl13@containers-us-west-165.railway.app:7046/railway",
+    "username": "postgres",
+    "password": "M7gaSYwVWtptFTA4Fl13",
+    "database": "railway",
+    "host": "containers-us-west-165.railway.app",
     "dialect": "postgres"
+   
   
   }
 }
