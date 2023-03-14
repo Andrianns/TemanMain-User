@@ -14,12 +14,6 @@
     "dialect": "postgres"
   },
   "production": {
-    "DATABASE_URL" : "postgresql://postgres:SuGd6cJvRHC84Jmx6hd2@containers-us-west-98.railway.app:6148/railway",
-    "PGDATABASE" :"railway",
-    "PGHOST" : "containers-us-west-98.railway.app",
-    "PGPASSWORD" : "SuGd6cJvRHC84Jmx6hd2",
-    "PGPORT" : "6148",
-    "PGUSER" : "postgres",
-    "dialect": "postgres"
+    "use_env_variable": "postgresql://postgres:SuGd6cJvRHC84Jmx6hd2@containers-us-west-98.railway.app:6148/railwayPGDATABASE = railway"
   }
 }
