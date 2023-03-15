@@ -1,5 +1,6 @@
 const app = require('../app.js');
-const port = process.env.PORT || 4001;
+const port = 4001;
+const Sequelize = require('sequelize');
 
 // const { Sequelize } = require('sequelize');
 
@@ -24,6 +25,11 @@ const port = process.env.PORT || 4001;
 //   console.log('Connection has been established successfully.');
 //   console.log(`Sequelize version: ${sequelize.version}`);
 // })();
+
+// const sequelize = new Sequelize('railway', 'postgres', 'M7gaSYwVWtptFTA4Fl13', {
+//   host: 'containers-us-west-165.railway.app',
+//   dialect: 'postgres',
+// });
 
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);

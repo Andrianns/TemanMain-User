@@ -16,32 +16,32 @@ app.use(router);
 //   console.log(`App is listening to ${port}`);
 // });
 
-const { Sequelize } = require('sequelize');
+// const { Sequelize } = require('sequelize');
 
-const sequelize = new Sequelize({
-  dialect: 'postgres',
-  host: 'containers-us-west-165.railway.app',
-  port: 4001,
-  username: 'postgres',
-  password: 'postgres',
-  database: 'TemanMain-user',
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
-});
+// const sequelize = new Sequelize({
+//   dialect: 'postgres',
+//   host: 'containers-us-west-165.railway.app',
+//   port: 4001,
+//   username: 'postgres',
+//   password: 'postgres',
+//   database: 'TemanMain-user',
+//   dialectOptions: {
+//     ssl: {
+//       require: true,
+//       rejectUnauthorized: false,
+//     },
+//   },
+// });
 
-// Test the connection by logging the Sequelize version
-(async () => {
-  await sequelize.authenticate();
-  console.log('Connection has been established successfully.');
-  console.log(`Sequelize version: ${sequelize.version}`);
-})();
+// // Test the connection by logging the Sequelize version
+// (async () => {
+//   await sequelize.authenticate();
+//   console.log('Connection has been established successfully.');
+//   console.log(`Sequelize version: ${sequelize.version}`);
+// })();
 
-app.listen(port, () => {
-  console.log(`App listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`App listening on port ${port}`);
+// });
 
 module.exports = app;
