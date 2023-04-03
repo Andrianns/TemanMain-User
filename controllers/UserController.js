@@ -1,13 +1,13 @@
-const { User } = require("../models/index.js");
-const { createToken } = require("../helper/jwt.js");
-const { comparePassword } = require("../helper/bcryptjs.js");
-const { AgeFormat } = require("../helper/customFormat.js");
+const { User } = require('../models/index.js');
+const { createToken } = require('../helper/jwt.js');
+const { comparePassword } = require('../helper/bcryptjs.js');
+const { AgeFormat } = require('../helper/customFormat.js');
 
 class UserController {
   static async readAllUser(req, res, next) {
     try {
       const users = await User.findAll({
-        attributes: { exclude: ["createdAt", "updatedAt", "password"] },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'password'] },
       });
 
       res.status(200).json(users);
@@ -19,7 +19,7 @@ class UserController {
   static async readAllUserPublic(req, res, next) {
     try {
       const users = await User.findAll({
-        attributes: { exclude: ["createdAt", "updatedAt", "password"] },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'password'] },
       });
 
       res.status(200).json(users);
@@ -78,11 +78,11 @@ class UserController {
       const { id } = req.params;
       // console.log(id, "<<<<<<<<<<<<<<<<<<<<<");
       const findUser = await User.findByPk(+id, {
-        attributes: { exclude: ["createdAt", "updatedAt", "password"] },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'password'] },
       });
 
       if (!findUser) {
-        throw { name: "NotFound" };
+        throw { name: 'NotFound' };
       }
 
       res.status(200).json(findUser);
@@ -110,7 +110,7 @@ class UserController {
       } = req.body;
 
       let findUser = await User.findByPk(+id, {
-        attributes: { exclude: ["createdAt", "updatedAt", "password"] },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'password'] },
       });
 
       if (!password) {
@@ -118,7 +118,7 @@ class UserController {
       }
 
       if (!findUser) {
-        throw { name: "NotFound" };
+        throw { name: 'NotFound' };
       }
 
       await User.update(
@@ -140,7 +140,7 @@ class UserController {
       );
 
       findUser = await User.findByPk(+id, {
-        attributes: { exclude: ["createdAt", "updatedAt", "password"] },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'password'] },
       });
 
       res.status(200).json({
@@ -156,11 +156,11 @@ class UserController {
       const { id } = req.params;
 
       const findUser = await User.findByPk(+id, {
-        attributes: { exclude: ["createdAt", "updatedAt", "password"] },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'password'] },
       });
 
       if (!findUser) {
-        throw { name: "NotFound" };
+        throw { name: 'NotFound' };
       }
 
       await User.destroy({ where: { id } });
@@ -189,12 +189,12 @@ class UserController {
         gender,
       } = req.body;
       const endpoint = req.baseUrl + req.path;
-      let role = "";
+      let role = '';
 
-      if (endpoint === "/users/register") {
-        role = "Admin";
-      } else if (endpoint === "/users/public/register") {
-        role = "Visitor";
+      if (endpoint === '/users/register') {
+        role = 'Admin';
+      } else if (endpoint === '/users/public/register') {
+        role = 'Visitor';
       }
 
       const newUser = await User.create({
@@ -230,19 +230,19 @@ class UserController {
       const { email, password } = req.body;
 
       if (!email || !password) {
-        throw { name: "RequiredEmailPassword" };
+        throw { name: 'RequiredEmailPassword' };
       }
 
       const findUser = await User.findOne({ where: { email } });
 
       if (!findUser) {
-        throw { name: "InvalidEmailOrPassword" };
+        throw { name: 'InvalidEmailOrPassword' };
       }
 
       const comparePass = comparePassword(password, findUser.password);
 
       if (!comparePass) {
-        throw { name: "InvalidEmailOrPassword" };
+        throw { name: 'InvalidEmailOrPassword' };
       }
 
       const payload = {
@@ -259,7 +259,8 @@ class UserController {
         access_token,
         age,
         gender: findUser.gender,
-        name: findUser.firstName + " " + findUser.lastName,
+        name: findUser.firstName + ' ' + findUser.lastName,
+        profilePict: findUser.profilePict,
       });
     } catch (error) {
       next(error);
@@ -272,7 +273,7 @@ class UserController {
       // console.log(id, "<<<<<<<");
 
       const findUser = await User.findByPk(+id, {
-        attributes: { exclude: ["createdAt", "updatedAt", "password"] },
+        attributes: { exclude: ['createdAt', 'updatedAt', 'password'] },
       });
       const age = AgeFormat(findUser.birthdate);
       findUser.dataValues.age = age;
