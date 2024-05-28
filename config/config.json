@@ -15,10 +15,10 @@
   },
   "production": {
     "username": "postgres",
-    "password": "rpznu9BMPNIgRiInpjWl",
+    "password": "dATpJAwmsqjDFTMrMctXZfahblKtNpJp",
     "database": "railway",
-    "host": "containers-us-west-165.railway.app",
-    "port":"7046",
+    "host": "roundhouse.proxy.rlwy.net",
+    "port":"15898",
     "dialect": "postgres"
   }
 }
